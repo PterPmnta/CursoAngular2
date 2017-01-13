@@ -1,0 +1,27 @@
+<br>
+<div>
+
+    <button (click)="cambiarEstado()">{{mensajeBoton}}</button>
+
+    <ul class="lista-pelicula" *ngIf="mostrarDatos === true">
+        <li><b>Nombre:</b> {{pelicula.titulo}}</li>
+        <li><b>Director:</b> {{pelicula.director}}</li>
+        <li><b>Año:</b> {{pelicula.anio}}</li>
+    </ul>
+
+    <p>
+        Cambiar titulo
+        <input type="text" [(ngModel)]="pelicula.titulo" />
+    </p>
+
+</div>
+
+<hr>
+
+<h1>Listado de peliculas</h1>
+
+<ul class="lista-pelicula" *ngFor="#pelicula of peliculas">
+    <li (click)="cambiarPelicula(pelicula)"><b>Nombre:</b> {{pelicula.titulo}}</li>
+    <li><b>Director:</b> {{pelicula.director}}</li>
+    <li><b>Año:</b> {{pelicula.anio}}</li>
+</ul>

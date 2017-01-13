@@ -1,0 +1,36 @@
+.titulo-general {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: darkred;
+    width: 100%;
+}
+
+.cajon-titulo {
+    background-color: royalblue;
+    height: 20%;
+    display: flex;
+    display: -webkit-flex;
+}
+
+.cajon-titulo h1 {
+    display: flex;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.lista-pelicula {
+    list-style: none;
+}
+
+.sub-titulo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    font-stretch: 500;
+    font-style: bold;
+}
+
+.ocultarBoton {
+    display: none;
+}

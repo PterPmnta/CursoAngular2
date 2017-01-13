@@ -1,0 +1,17 @@
+<div class="cajon-titulo">
+    <h1 class="titulo-general">{{Titulo}}</h1>
+</div>
+
+<!-- <peliculas-list></peliculas-list> -->
+
+<nav>
+    <ul>
+        <li><a [routerLink]="['Peliculas']">Inicio</a></li>
+        <li><a [routerLink]="['Agregar']">Agregar Peliculas</a></li>
+        <li><a [routerLink]="['Contacto']">Contacto</a></li>
+    </ul>
+</nav>
+
+<router-outlet></router-outlet>
+
+<peliculas-footer></peliculas-footer>
