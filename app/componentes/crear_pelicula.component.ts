@@ -1,7 +1,8 @@
 import { PeliculasService } from './../servicios/peliculas.service';
-import { Router } from 'angular2/router';
+import { Router, RouteParams } from 'angular2/router';
 import { Pelicula } from './../modelos/pelicula';
 import {Component} from 'angular2/core';
+import {OnInit} from 'angular2/core';
 
  
 // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
@@ -11,18 +12,27 @@ import {Component} from 'angular2/core';
 })
 
 // Clase del componente donde iran los datos y funcionalidades
-export class CrearPeliculaComponent {
+export class CrearPeliculaComponent implements OnInit {
 
-    constructor(private _peliculasService: PeliculasService, private _router:Router){
+    public tituloPelicula = "";
+    public nuevaPelicula: Pelicula;
+
+    constructor(private _peliculasService: PeliculasService, private _router:Router, private _routeParams:RouteParams){
 
     }
 
-    agregarPelicula(titulo:string, director:string, anio:number){
-        
-        let nuevaPelicula: Pelicula = new Pelicula(titulo, director, anio);
-        this._peliculasService.insertPelicula(nuevaPelicula);
-
+    onSubmit(){
+        this._peliculasService.insertPelicula(this.nuevaPelicula);
         this._router.navigate(["Peliculas"]);
     }    
+
+    ngOnInit():any{
+        this.tituloPelicula = this._routeParams.get('titulo');
+        this.nuevaPelicula = new Pelicula(
+            this._routeParams.get('titulo'),
+            this._routeParams.get('director'),
+            parseInt(this._routeParams.get('anio'))
+        );
+    }
 
  }

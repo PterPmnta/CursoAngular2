@@ -20,7 +20,8 @@ import {ROUTER_DIRECTIVES, RouteConfig, Router} from 'angular2/router';
 @RouteConfig([
     {path: "/peliculas", name: "Peliculas", component: PeliculasListComponent, useAsDefault: true},
     {path: "/contacto", name: "Contacto", component: ContactoComponent},
-    {path: "/agregar", name: "Agregar", component: CrearPeliculaComponent}
+    {path: "/agregar", name: "Agregar", component: CrearPeliculaComponent},
+    {path: "/agregar/:titulo/:director/:anio", name: "AgregarBasada", component: CrearPeliculaComponent}
 ])
 
  

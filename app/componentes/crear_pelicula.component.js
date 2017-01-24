@@ -29,21 +29,26 @@ System.register(['./../servicios/peliculas.service', 'angular2/router', './../mo
         execute: function() {
             // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
             CrearPeliculaComponent = (function () {
-                function CrearPeliculaComponent(_peliculasService, _router) {
+                function CrearPeliculaComponent(_peliculasService, _router, _routeParams) {
                     this._peliculasService = _peliculasService;
                     this._router = _router;
+                    this._routeParams = _routeParams;
+                    this.tituloPelicula = "";
                 }
-                CrearPeliculaComponent.prototype.agregarPelicula = function (titulo, director, anio) {
-                    var nuevaPelicula = new pelicula_1.Pelicula(titulo, director, anio);
-                    this._peliculasService.insertPelicula(nuevaPelicula);
+                CrearPeliculaComponent.prototype.onSubmit = function () {
+                    this._peliculasService.insertPelicula(this.nuevaPelicula);
                     this._router.navigate(["Peliculas"]);
+                };
+                CrearPeliculaComponent.prototype.ngOnInit = function () {
+                    this.tituloPelicula = this._routeParams.get('titulo');
+                    this.nuevaPelicula = new pelicula_1.Pelicula(this._routeParams.get('titulo'), this._routeParams.get('director'), parseInt(this._routeParams.get('anio')));
                 };
                 CrearPeliculaComponent = __decorate([
                     core_1.Component({
                         templateUrl: "app/plantillas/crear_pelicula.html",
                         providers: [peliculas_service_1.PeliculasService]
                     }), 
-                    __metadata('design:paramtypes', [peliculas_service_1.PeliculasService, router_1.Router])
+                    __metadata('design:paramtypes', [peliculas_service_1.PeliculasService, router_1.Router, router_1.RouteParams])
                 ], CrearPeliculaComponent);
                 return CrearPeliculaComponent;
             }());

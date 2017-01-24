@@ -24,4 +24,9 @@
     <li (click)="cambiarPelicula(pelicula)"><b>Nombre:</b> {{pelicula.titulo}}</li>
     <li><b>Director:</b> {{pelicula.director}}</li>
     <li><b>Año:</b> {{pelicula.anio}}</li>
+    <li>
+        <a [routerLink]="['AgregarBasada', {titulo: pelicula.titulo, director: pelicula.director, anio: pelicula.anio }]">
+            Agregar Pelicula basada en esta
+        </a>
+    </li>
 </ul>

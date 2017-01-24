@@ -48,7 +48,8 @@ System.register(['angular2/core', './componentes/peliculas_list.component', './c
                     router_1.RouteConfig([
                         { path: "/peliculas", name: "Peliculas", component: peliculas_list_component_1.PeliculasListComponent, useAsDefault: true },
                         { path: "/contacto", name: "Contacto", component: contacto_component_1.ContactoComponent },
-                        { path: "/agregar", name: "Agregar", component: crear_pelicula_component_1.CrearPeliculaComponent }
+                        { path: "/agregar", name: "Agregar", component: crear_pelicula_component_1.CrearPeliculaComponent },
+                        { path: "/agregar/:titulo/:director/:anio", name: "AgregarBasada", component: crear_pelicula_component_1.CrearPeliculaComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
